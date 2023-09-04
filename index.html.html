@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Document</title>
+    <style>
+        div {
+            height: 14vh;
+            width: 13vw;
+            border-radius: 40px;
+            border: 1px solid black;
+            display: inline-block;
+            background-color: antiquewhite;
+        }
+        button{
+            height: 40px;
+            width: 120px;
+            border-radius: 20px;
+            color: white;
+            background-color: dodgerblue;
+        }
+    </style>
+</head>
+
+<body>
+    <article style="display: flex;justify-content: center;align-items: center;height: 90vh;flex-direction: column;">
+        <article style="border: 1px solid black;padding: 3%; background-color: coral;border-radius: 15px;">
+        <article>
+            <div id="id1"></div>
+            <div id="id2"></div>
+        </article>
+        <article>
+            <div id="id3"></div>
+            <div id="id4"></div>
+        </article>
+        <article>
+            <div id="id5"></div>
+            <div id="id6"></div>
+        </article>
+        <article>
+            <div id="id7"></div>
+            <div id="id8"></div>
+        </article>
+        <article>
+            <div id="id9"></div>
+            <div id="id10"></div>
+        </article>
+    </article>
+
+    </article>
+    <article style="display: flex;justify-content: space-evenly; margin-top: 2vh;">
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+    </article>
+
+    <script>
+
+        let divArr = ["id1", "id2", "id3", "id4", "id5", "id6", "id7", "id8", "id9", "id10"];
+        let colArr = ["red", "violet", "yellow", "black", "blue", "green", "pink", "orange", "white", "indigo"];
+        let i = 0;
+document.getElementById('start').addEventListener('click',()=>{
+const myInterval =  setInterval(() => {
+            if (i >= 20) {
+                i = 10
+            }
+            print()
+        }, 700)
+        function print() {
+            if (i < 10) {
+                let j = i;
+                while (j >= 0) {
+                    document.getElementById(divArr[j]).style.backgroundColor = colArr[i - j]
+                    j--;
+                }
+                i++;
+            }
+            else if (i >= 10 && i < 20) {
+                let j = 9;
+                while (j >= 0) {
+                    if (i - j > 9) {
+                        document.getElementById(divArr[j]).style.backgroundColor = colArr[i - j - 10]
+                    }
+
+                    else {
+                        document.getElementById(divArr[j]).style.backgroundColor = colArr[i - j]
+                    }
+                    j--;
+                }
+                i++;
+            }
+        }
+        document.getElementById('stop').addEventListener('click',()=>{
+            clearInterval(myInterval);
+        })
+})
+       
+
+
+
+    </script>
+</body>
+
+</html>
